@@ -1,0 +1,94 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 共通 */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+.navbar-nav .nav-link {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 600;
+  line-height: normal;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+}
+
+.navbar-nav li {
+  padding: 0.5px 0;
+}
+
+#notice {
+  color: green;
+}
+
+#error_explanation {
+  color: red;
+}
+
+#error_explanation ul {
+  padding-left: 40px;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* 各viewsページ */
+.field, .actions {
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.table th, .table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}

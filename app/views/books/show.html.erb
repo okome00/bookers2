@@ -1,0 +1,40 @@
+<%# ユーザー情報/新規投稿 %>
+<div class="container">
+  <div class="row">
+
+    <%= render 'list', book: @book, user: @user %>
+
+<%# ここまで共通部分 %>
+
+<%# 投稿詳細表示 %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><%= image_tag @books.user.get_profile_image(40, 40) %>
+                <%= link_to user_path(@user.id) do %><br />
+                  <%= @user.name %>
+                <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@books.id) do %>
+                <%= @books.title %>
+              <% end %>
+            </td>
+            <td><%= @books.body %></td>
+            <% if @books.user == current_user %>
+              <td><%= link_to 'Edit', edit_book_path(@books.id), class: 'btn btn-sm btn-success' %></td>
+              <td><%= link_to 'Destroy', book_path(@books), method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-sm btn-danger' %>
+            <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+

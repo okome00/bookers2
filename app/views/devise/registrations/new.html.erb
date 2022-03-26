@@ -1,0 +1,53 @@
+<%# Sign_upページ %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+      <h2>Sign up</h2>
+      <div id="error_explanation">
+        <% if @user.errors.any? %>
+          <h2><%= @user.errors.count %> errors prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+
+      <%# form_withヘルパー書き換え %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user' do |f| %>
+
+        <%# name表示追加 %>
+        <div class="field">
+          <label for="user_name">Name</label><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="field">
+          <label for="user_email">Email</label><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <label for="user_password">Password</label>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <label for="user_password_confirmation">Password confirmation</label><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Sign up", class: 'btn btn-sm btn-success' %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
